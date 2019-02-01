@@ -1,0 +1,207 @@
+
+{% extends "mybase2.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Add Question form{% endblock title %}
+
+  {% block extra_css %}
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+      <link href="{% static 'css/add_question_form.css' %}" rel="stylesheet" type="text/css">
+      <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/dropdown.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+
+  
+  {% endblock extra_css %}
+
+{% block content %}
+
+<div class="container">
+{% for subject in subjects_queryset %}
+
+<form style="float: left;" action="/game1Form/" onsubmit="btnsubmit.disabled = true; return true ;" method="POST">{% csrf_token %}
+  
+
+ {% if subject.id == subject_id %}<!--here subject.id is int and subject_id is str if not converted into int in views.py-->
+
+     
+                            <input type="hidden" id="subject_id" name="subject_id" value={{subject.id}}>
+
+                                <input type="hidden" id="sem_id" name="sem_id" value={{sem_id}}>
+
+
+                                <button href="" class="btn-group btn-group-lg btn btn-outline-info active" name="btnsubmit" type="submit"><font size="4">{{subject}}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>&nbsp;
+{%  else %}
+                            <!--one change only here button is not active-->
+                            <input type="hidden" id="subject_id" name="subject_id" value={{subject.id}}>
+
+
+                            <input type="hidden" id="sem_id" name="sem_id" value={{sem_id}}>
+                            
+                                <button href="" class="btn-group btn-group-lg btn btn-outline-info" name="btnsubmit" type="submit"><font size="4">{{subject}}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>&nbsp;
+
+
+{% endif %}
+</form> 
+
+
+
+
+
+
+
+{% endfor %}
+</div>
+
+
+
+ <section class="my-padding4">
+   
+      
+   
+
+<div class="testbox">
+
+        <form class="addQuestionForm" action="/onSubmitGame1Form/" method="POST" onsubmit="btnSubmit.disabled = true; return true ;" enctype="multipart/form-data">{% csrf_token %}
+
+
+        <div class="content-section" style=" text-align: center;s">
+          <font color="#669999" size=5>{{subject_name}}</font>
+        </div>
+        
+        <div class="item">
+          <label for="instructions">Question 1 (Golden Question)<span>*</span></label>
+           
+           {{ game1_form.questions|add_class:"myformclass"}}
+        </div>
+
+        <hr>
+        
+        <div class="item">
+          <label for="instructions">Question 2 (Silver Question)<span>*</span></label>
+           {{ game1_form.questions|add_class:"myformclass"}}
+         
+        </div>
+
+        <hr>
+      
+
+        <div class="item">
+          <label for="instructions">Question 3 ( Bronze Question)<span>*</span></label>
+
+           {{ game1_form.questions|add_class:"myformclass"}}
+         
+        </div>
+
+        <hr>
+
+        <div class="item">
+          <label for="instructions">Question 4<span>*</span></label>
+           {{ game1_form.questions|add_class:"myformclass"}}
+         
+        </div>
+
+        <hr>
+
+
+
+        <div class="item">
+          <label for="instructions">Question 5<span>*</span></label>
+
+         {{ game1_form.questions|add_class:"myformclass"}}
+        </div>
+
+        <hr>        
+
+
+        <div class="item">
+          <label for="instructions">Question 6<span>*</span></label>
+
+         {{ game1_form.questions|add_class:"myformclass"}}
+        </div>
+
+        <hr>        
+
+        <div class="item">
+          <label for="instructions">Question 7<span>*</span></label>
+
+         {{ game1_form.questions|add_class:"myformclass"}}
+        </div>
+
+        <hr>        
+
+
+        <div class="item">
+          <label for="instructions">Question 8<span>*</span></label>
+
+         {{ game1_form.questions|add_class:"myformclass"}}
+        </div>
+
+        <hr>        
+
+        <div class="item">
+          <label for="instructions">Question 9<span>*</span></label>
+
+         {{ game1_form.questions|add_class:"myformclass"}}
+        </div>
+
+        <hr>        
+
+        <div class="item">
+          <label for="instructions">Question 10<span>*</span></label>
+
+         {{ game1_form.questions|add_class:"myformclass"}}
+        </div>
+
+        <hr>      
+
+         <div class="item">
+          <label for="instructions">Question 11<span>*</span></label>
+
+           {{ game1_form.questions|add_class:"myformclass"}}<!--{% load widget_tweaks %} required for this.....i am adding myformclass css class to style django form field...to use this install
+            pip install django-widget-tweaks-->
+            <!--e.g formultiple class{{ form.title|add_class:"css_class_1 css_class_2" }}
+              docs-https://pypi.org/project/django-widget-tweaks/-->
+        </div>
+
+        
+
+        
+     
+        
+
+         
+
+
+
+        <div class="btn-block">
+          <button name="btnSubmit" type="submit" href="/"><font color="black">Submit</font></button>
+        </div>
+
+      </form>
+
+
+    </div>
+
+
+     
+    </section>
+
+     
+
+{% endblock content %}
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 192.168.99.100:9000"
+
+  postgres:
+        image: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=""
+            - POSTGRES_DB=ExamPostgresql
+            - POSTGRES_HOST=127.0.0.1
+        volumes:
+            - ./env-config/postgres.conf:/etc/postgresql.conf
+            - /srv/docker/postgresql:/var/lib/postgresql    
+        
+        restart: always

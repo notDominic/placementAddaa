@@ -1,0 +1,42 @@
+{% extends "mybase2.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+ {% block extra_css %}
+ <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/dropdown.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+
+{% endblock extra_css %}
+
+
+{% block content %}
+
+
+
+
+{% for game in game_queryset %}
+
+<form style="float: left;" onsubmit="btnsubmit.disabled = true; return true ;" method="POST">{% csrf_token %}
+
+
+                            <input type="hidden" id="game_id" name="game_id" value={{game.id}}>
+
+                            
+                                
+                                <button formaction="/select_semester/" class="btn-group btn-group-lg btn btn-outline-info active" name="btnsubmit" type="submit"><font size="4">  Game Number {{game.game_number}} ( {{game.exam}} )</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>&nbsp;
+</form> 
+
+
+
+
+
+
+{% endfor %}
+
+
+{% endblock content %}

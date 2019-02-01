@@ -1,0 +1,126 @@
+
+{% extends "mybase2.html" %}
+{% load static %}
+
+{% block title %}Add Question form{% endblock title %}
+
+  {% block extra_css %}
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+      <link href="{% static 'css/add_question_form.css' %}" rel="stylesheet" type="text/css">
+      <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/dropdown.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+
+  
+  {% endblock extra_css %}
+
+{% block content %}
+
+
+ <section class="my-padding4">
+   
+      
+   
+
+<div class="testbox">
+      <form action="/">
+        
+        <div class="item">
+          <label for="instructions">Question</label>
+          <textarea id="question" rows="3" required></textarea>
+        </div>
+        <div class="item">
+          <label for="email">Email Address<span>*</span></label>
+          <input id="email" type="email" name="email" required/>
+        </div>
+        <div class="item">
+          <label for="attendees">Number of Attendees <span>*</span></label>
+          <input id="attendess" type="text" name="attendees" required/>
+        </div>
+        <div class="item">
+          <label for="position">Position<span>*</span></label>
+          <input id="position" type="text" name="position" required/>
+        </div>
+        <div class="item">
+          <label for="department">Department<span>*</span></label>
+          <input id="department" type="text" name="department" required/>
+        </div>
+        <div class="item">
+          <label for="phone">Phone<span>*</span></label>
+          <input id="phone" type="number" placeholder="(XXX) XXX-XXXX"  name="phone" required/>
+        </div>
+        <div class="item">
+          <label for="bdate">Date<span>*</span></label>
+          <input id="bdate" type="date" name="bdate" required/>
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="flax">
+          <div class="item">
+            <p>Start Time</p>
+            <select>
+              <option selected value="" disabled selected></option>
+              <option value="8A" >8 AM</option>
+              <option value="9A">9 AM</option>
+              <option value="10A">10 AM</option>
+              <option value="11A">11 Am</option>
+              <option value="12P">12 Pm</option>
+              <option value="1P">1 Pm</option>
+              <option value="2P">2 Pm</option>
+              <option value="3P">3 Pm</option>
+              <option value="4P">4 Pm</option>
+              <option value="5P">5 Pm</option>
+              <option value="6P">6 Pm</option>
+              <option value="7P">7 Pm</option>
+              <option value="8P">8 Pm</option>
+            </select>
+          </div>
+          <div class="item">
+            <p>End Time</p>
+            <select>
+              <option selected value="" disabled selected></option>
+              <option value="8A" >8 AM</option>
+              <option value="9A">9 AM</option>
+              <option value="10A">10 AM</option>
+              <option value="11A">11 Am</option>
+              <option value="12P">12 Pm</option>
+              <option value="1P">1 Pm</option>
+              <option value="2P">2 Pm</option>
+              <option value="3P">3 Pm</option>
+              <option value="4P">4 Pm</option>
+              <option value="5P">5 Pm</option>
+              <option value="6P">6 Pm</option>
+              <option value="7P">7 Pm</option>
+              <option value="8P">8 Pm</option>
+            </select>
+          </div>
+        </div>
+        <div class="item">
+          <label for="instructions">Special Instructions</label>
+          <textarea id="instructions" rows="3"></textarea>
+        </div>
+        <p><small>0/100 characters</small></p>
+        <div class="btn-block">
+          <button type="submit" href="/">Submit</button>
+        </div>
+      </form>
+    </div>
+
+
+     
+    </section>
+
+{% endblock content %}
+
+
+
+
+
+

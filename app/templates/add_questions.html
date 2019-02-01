@@ -1,0 +1,150 @@
+
+{% extends "mybase2.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Add Question form{% endblock title %}
+
+  {% block extra_css %}
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+      <link href="{% static 'css/add_question_form.css' %}" rel="stylesheet" type="text/css">
+      <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/dropdown.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+
+  
+  {% endblock extra_css %}
+
+{% block content %}
+
+
+ <section class="my-padding4">
+   
+      
+   
+
+<div class="testbox">
+        <form  class="addQuestionForm" action="/onSubmitAddQuestionForm/" method="POST" onsubmit="btnSubmit.disabled = true; return true ;" enctype="multipart/form-data">{% csrf_token %}
+        
+        <div class="item">
+          <label for="instructions">Question<span>*</span></label>
+           {{ question_form.question}}
+         
+        </div>
+     
+        <hr>
+
+         <div class="item">
+            <label >Marks<span>*</span></label>
+            <br>
+             <div class="item">
+            
+            <select class="myformclass" name="marks" required>
+              <option selected value="" disabled selected></option>
+              <option value="2" >2 Marks</option>
+              <option value="5">5 Marks</option>
+              <option value="8">8 Marks</option>
+              <option value="10">10 Marks</option>
+            </select>
+          </div>
+        </div>
+
+        <hr>
+
+
+        <div class="item">
+            <label >Difficulty level<span>*</span></label>
+            <br>
+             <div class="item">
+            
+            <select class="myformclass" name="difficulty_level" required>
+              <option selected value="" disabled selected></option>
+              <option value="Easy" >Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+             
+            </select>
+          </div>
+        </div>
+
+        <hr>
+
+
+        <div class="item">
+          <label>Module Name <span>*</span></label> <span class="label label-default"><font color="white">Enter module name of question </font></span>
+          <br>
+
+           {{ question_form.module_name|add_class:"myformclass"}}
+        </div>
+
+        <hr>
+
+       
+
+        <div class="item">
+          <label >Subject Name<span>*</span></label><span class="label label-default"><font color="white">Question is in which subject </font></span>
+          <br>
+         {{ question_form.subject_name|add_class:"myformclass"}}
+        </div>
+
+        <hr>
+
+
+        <div class="item">
+            <label >Semester<span>*</span></label><span class="label label-default"><font color="white">Question is in which Semester </font></span>
+            <br>
+            {{ question_form.semester_name|add_class:"myformclass"}}
+        </div>
+
+        <hr>
+
+        <div class="item">
+          <label >Branch Name<span>*</span></label><span class="label label-default"><font color="white">Question is in which branch </font></span>
+          <br>
+          {{ question_form.branch_name|add_class:"myformclass"}}
+        </div>
+
+        <hr>
+
+        <div class="item">
+          <label for="instructions">Any Special Instructions or note ( Optional )</label>
+          {{ question_form.note_for_question}}
+        </div>
+
+        <hr>
+
+        
+
+
+
+
+
+
+
+
+        <div class="btn-block">
+          <button name="btnSubmit" type="submit" href="/"><font color="black">Submit</font></button>
+        </div>
+
+      </form>
+    </div>
+
+
+     
+    </section>
+
+{% endblock content %}
+
+
+
+
+
+

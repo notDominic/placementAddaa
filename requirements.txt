@@ -1,0 +1,6 @@
+pillow
+Django
+django-crispy-forms==1.7.2
+python-dotenv
+psycopg2
+django-widget-tweaks
